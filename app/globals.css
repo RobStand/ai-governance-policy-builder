@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #13263f;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: theme("colors.paper");
+  color: theme("colors.charcoal");
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* Rendered policy body styling (markdown -> HTML). */
+.policy-prose h3 {
+  @apply text-lg font-semibold text-navy mt-6 mb-2;
+}
+.policy-prose p {
+  @apply text-[15px] leading-7 text-charcoal/90 my-3;
+}
+.policy-prose ul {
+  @apply list-disc pl-6 my-3 space-y-1.5 text-[15px] leading-7 text-charcoal/90;
+}
+.policy-prose ol {
+  @apply list-decimal pl-6 my-3 space-y-1.5 text-[15px] leading-7 text-charcoal/90;
+}
+.policy-prose strong {
+  @apply font-semibold text-navy;
+}
+.policy-prose table {
+  @apply w-full border-collapse my-4 text-sm;
+}
+.policy-prose th,
+.policy-prose td {
+  @apply border border-slate-300 px-3 py-2 text-left align-top;
+}
+.policy-prose th {
+  @apply bg-slate-50 font-semibold text-navy;
+}
+
+/* Print / PDF: clean margins, no backgrounds, avoid awkward section breaks. */
+@media print {
+  body {
+    background: #fff;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-section {
+    break-inside: avoid;
+  }
+  .policy-document {
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
