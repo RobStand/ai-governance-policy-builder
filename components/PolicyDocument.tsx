@@ -29,30 +29,30 @@ export const PolicyDocument = forwardRef<HTMLDivElement, {
   return (
     <div
       ref={ref}
-      className="policy-document mx-auto w-full max-w-3xl rounded-lg bg-white px-8 py-10 shadow-sm ring-1 ring-slate-200 sm:px-12 sm:py-14"
+      className="policy-document mx-auto w-full max-w-3xl rounded-lg bg-white px-8 py-10 shadow-sm ring-1 ring-line sm:px-12 sm:py-14"
     >
       {/* Metadata block */}
-      <div className="mb-6 border-b border-slate-200 pb-6">
-        <div className="font-mono text-xs uppercase tracking-wider text-navy/60">
+      <div className="mb-6 border-b border-line pb-6">
+        <div className="font-mono text-xs uppercase tracking-wider text-muted">
           AI Governance Policy
         </div>
-        <h1 className="mt-2 text-3xl font-semibold text-navy">
+        <h1 className="mt-2 text-3xl font-semibold text-ink">
           {meta.orgName ? meta.orgName : "AI Governance Framework"}
         </h1>
         <dl className="mt-4 grid grid-cols-1 gap-x-8 gap-y-2 text-sm sm:grid-cols-2">
           <div className="flex justify-between gap-4 sm:block">
-            <dt className="font-mono text-xs uppercase tracking-wide text-slate-400">Generated</dt>
-            <dd className="text-charcoal">{meta.generatedDate}</dd>
+            <dt className="font-mono text-xs uppercase tracking-wide text-muted-soft">Generated</dt>
+            <dd className="text-ink">{meta.generatedDate}</dd>
           </div>
           <div className="flex justify-between gap-4 sm:block">
-            <dt className="font-mono text-xs uppercase tracking-wide text-slate-400">Version</dt>
-            <dd className="text-charcoal">{meta.version}</dd>
+            <dt className="font-mono text-xs uppercase tracking-wide text-muted-soft">Version</dt>
+            <dd className="text-ink">{meta.version}</dd>
           </div>
           <div className="sm:col-span-2">
-            <dt className="font-mono text-xs uppercase tracking-wide text-slate-400">
+            <dt className="font-mono text-xs uppercase tracking-wide text-muted-soft">
               Regulatory context
             </dt>
-            <dd className="mt-0.5 text-charcoal">{meta.regulatorySummary}</dd>
+            <dd className="mt-0.5 text-ink">{meta.regulatorySummary}</dd>
           </div>
         </dl>
       </div>
@@ -63,7 +63,7 @@ export const PolicyDocument = forwardRef<HTMLDivElement, {
 
       {doc.preamble ? (
         <div
-          className="policy-prose mb-8 border-l-2 border-navy/20 pl-4 text-slate-600"
+          className="policy-prose mb-8 border-l-2 border-line pl-4 text-muted"
           dangerouslySetInnerHTML={{ __html: renderMarkdown(doc.preamble) }}
         />
       ) : null}
@@ -80,7 +80,7 @@ export const PolicyDocument = forwardRef<HTMLDivElement, {
         ))}
       </div>
 
-      <div className="mt-12 border-t border-slate-200 pt-6">
+      <div className="mt-12 border-t border-line pt-6">
         <DisclaimerBanner />
       </div>
     </div>

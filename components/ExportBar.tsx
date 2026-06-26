@@ -51,7 +51,7 @@ export default function ExportBar({
         type="button"
         onClick={handlePdf}
         disabled={disabled || exporting}
-        className={`${btn} bg-navy text-white hover:bg-navy-600`}
+        className={`${btn} bg-accent text-white hover:bg-accent-dark`}
       >
         {exporting ? "Preparing PDF…" : "Download PDF"}
       </button>
@@ -59,7 +59,7 @@ export default function ExportBar({
         type="button"
         onClick={handleCopy}
         disabled={disabled}
-        className={`${btn} border border-slate-300 bg-white text-charcoal hover:bg-slate-50`}
+        className={`${btn} border border-line-strong bg-white text-ink hover:bg-neutral-50`}
       >
         {copied ? "Copied" : "Copy as text"}
       </button>
@@ -67,14 +67,14 @@ export default function ExportBar({
         type="button"
         onClick={() => window.print()}
         disabled={disabled}
-        className={`${btn} border border-slate-300 bg-white text-charcoal hover:bg-slate-50`}
+        className={`${btn} border border-line-strong bg-white text-ink hover:bg-neutral-50`}
       >
         Print
       </button>
       <button
         type="button"
         onClick={onRegenerate}
-        className={`${btn} ml-auto text-navy hover:bg-navy-50`}
+        className={`${btn} ml-auto text-accent hover:bg-accent-wash`}
       >
         Regenerate
       </button>

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --navy: #13263f;
+  --accent: #047857;
 }
 
 html,
@@ -14,35 +14,35 @@ body {
 
 body {
   background-color: theme("colors.paper");
-  color: theme("colors.charcoal");
+  color: theme("colors.ink");
   font-feature-settings: "cv11", "ss01";
 }
 
 /* Rendered policy body styling (markdown -> HTML). */
 .policy-prose h3 {
-  @apply text-lg font-semibold text-navy mt-6 mb-2;
+  @apply text-lg font-semibold text-ink mt-6 mb-2;
 }
 .policy-prose p {
-  @apply text-[15px] leading-7 text-charcoal/90 my-3;
+  @apply text-[15px] leading-7 text-ink/90 my-3;
 }
 .policy-prose ul {
-  @apply list-disc pl-6 my-3 space-y-1.5 text-[15px] leading-7 text-charcoal/90;
+  @apply list-disc pl-6 my-3 space-y-1.5 text-[15px] leading-7 text-ink/90;
 }
 .policy-prose ol {
-  @apply list-decimal pl-6 my-3 space-y-1.5 text-[15px] leading-7 text-charcoal/90;
+  @apply list-decimal pl-6 my-3 space-y-1.5 text-[15px] leading-7 text-ink/90;
 }
 .policy-prose strong {
-  @apply font-semibold text-navy;
+  @apply font-semibold text-ink;
 }
 .policy-prose table {
   @apply w-full border-collapse my-4 text-sm;
 }
 .policy-prose th,
 .policy-prose td {
-  @apply border border-slate-300 px-3 py-2 text-left align-top;
+  @apply border border-line px-3 py-2 text-left align-top;
 }
 .policy-prose th {
-  @apply bg-slate-50 font-semibold text-navy;
+  @apply bg-paper font-semibold text-ink;
 }
 
 /* Print / PDF: clean margins, no backgrounds, avoid awkward section breaks. */

@@ -243,7 +243,7 @@ export default function ConfigForm() {
         title="Policy priorities"
         subtitle="Set the priority for each area. Higher-priority areas get greater depth."
       >
-        <div className="divide-y divide-slate-100">
+        <div className="divide-y divide-line">
           {PRIORITY_AREAS.map((area) => (
             <PriorityRow
               key={area.key}
@@ -261,7 +261,7 @@ export default function ConfigForm() {
         <button
           type="button"
           onClick={handleSubmit}
-          className="inline-flex items-center rounded-md bg-navy px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-navy-600"
+          className="inline-flex items-center rounded-md bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-dark"
         >
           Generate governance framework
         </button>
@@ -273,7 +273,7 @@ export default function ConfigForm() {
 /* ---------- presentational helpers ---------- */
 
 const inputClass =
-  "w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-charcoal shadow-sm focus:border-navy focus:outline-none focus:ring-1 focus:ring-navy";
+  "w-full rounded-md border border-line-strong bg-white px-3 py-2 text-sm text-ink shadow-sm focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent";
 
 function FormSection({
   n,
@@ -287,13 +287,13 @@ function FormSection({
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-lg border border-slate-200 bg-white p-6 sm:p-8">
+    <section className="rounded-lg border border-line bg-white p-6 sm:p-8">
       <header className="mb-6">
-        <div className="font-mono text-xs uppercase tracking-wider text-navy/60">
+        <div className="font-mono text-xs uppercase tracking-wider text-muted">
           Section {n}
         </div>
-        <h2 className="mt-1 text-xl font-semibold text-navy">{title}</h2>
-        <p className="mt-1 text-sm text-slate-500">{subtitle}</p>
+        <h2 className="mt-1 text-xl font-semibold text-ink">{title}</h2>
+        <p className="mt-1 text-sm text-muted">{subtitle}</p>
       </header>
       <div className="space-y-6">{children}</div>
     </section>
@@ -313,11 +313,11 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-sm font-medium text-charcoal">
+      <label className="block text-sm font-medium text-ink">
         {label}
         {required ? <span className="ml-1 text-red-500">*</span> : null}
       </label>
-      {hint ? <p className="mt-0.5 text-xs text-slate-400">{hint}</p> : null}
+      {hint ? <p className="mt-0.5 text-xs text-muted-soft">{hint}</p> : null}
       <div className="mt-2">{children}</div>
     </div>
   );
@@ -333,12 +333,12 @@ function Checkbox({
   onChange: () => void;
 }) {
   return (
-    <label className="flex cursor-pointer items-start gap-2 text-sm text-charcoal">
+    <label className="flex cursor-pointer items-start gap-2 text-sm text-ink">
       <input
         type="checkbox"
         checked={checked}
         onChange={onChange}
-        className="mt-0.5 h-4 w-4 rounded border-slate-300 text-navy focus:ring-navy"
+        className="mt-0.5 h-4 w-4 rounded border-line-strong text-accent focus:ring-accent"
       />
       <span>{label}</span>
     </label>
@@ -356,8 +356,8 @@ function Toggle({
 }) {
   return (
     <div className="flex items-center justify-between gap-4">
-      <span className="text-sm text-charcoal">{label}</span>
-      <div className="inline-flex shrink-0 overflow-hidden rounded-md border border-slate-300">
+      <span className="text-sm text-ink">{label}</span>
+      <div className="inline-flex shrink-0 overflow-hidden rounded-md border border-line-strong">
         {[
           { l: "Yes", v: true },
           { l: "No", v: false },
@@ -368,8 +368,8 @@ function Toggle({
             onClick={() => onChange(o.v)}
             className={`px-4 py-1.5 text-sm font-medium transition-colors ${
               value === o.v
-                ? "bg-navy text-white"
-                : "bg-white text-slate-600 hover:bg-slate-50"
+                ? "bg-accent text-white"
+                : "bg-white text-muted hover:bg-neutral-50"
             }`}
           >
             {o.l}
@@ -396,7 +396,7 @@ function Segmented({
       className={
         stacked
           ? "flex flex-col gap-2"
-          : "inline-flex flex-wrap overflow-hidden rounded-md border border-slate-300"
+          : "inline-flex flex-wrap overflow-hidden rounded-md border border-line-strong"
       }
     >
       {options.map((o) => {
@@ -409,8 +409,8 @@ function Segmented({
               onClick={() => onChange(o.key)}
               className={`rounded-md border px-4 py-2.5 text-left text-sm transition-colors ${
                 active
-                  ? "border-navy bg-navy-50 font-medium text-navy"
-                  : "border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+                  ? "border-accent bg-accent-wash font-medium text-accent"
+                  : "border-line bg-white text-muted hover:bg-neutral-50"
               }`}
             >
               {o.label}
@@ -423,7 +423,7 @@ function Segmented({
             type="button"
             onClick={() => onChange(o.key)}
             className={`px-4 py-2 text-sm font-medium transition-colors ${
-              active ? "bg-navy text-white" : "bg-white text-slate-600 hover:bg-slate-50"
+              active ? "bg-accent text-white" : "bg-white text-muted hover:bg-neutral-50"
             }`}
           >
             {o.label}
@@ -451,8 +451,8 @@ function PriorityRow({
 }) {
   return (
     <div className="flex items-center justify-between gap-4 py-3">
-      <span className="text-sm text-charcoal">{label}</span>
-      <div className="inline-flex shrink-0 overflow-hidden rounded-md border border-slate-300">
+      <span className="text-sm text-ink">{label}</span>
+      <div className="inline-flex shrink-0 overflow-hidden rounded-md border border-line-strong">
         {LEVELS.map((l) => (
           <button
             key={l.key}
@@ -460,8 +460,8 @@ function PriorityRow({
             onClick={() => onChange(l.key)}
             className={`px-3 py-1.5 text-xs font-medium transition-colors ${
               value === l.key
-                ? "bg-navy text-white"
-                : "bg-white text-slate-600 hover:bg-slate-50"
+                ? "bg-accent text-white"
+                : "bg-white text-muted hover:bg-neutral-50"
             }`}
           >
             {l.label}

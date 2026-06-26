@@ -9,20 +9,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: {
-          DEFAULT: "#13263f",
-          50: "#f3f6fb",
-          100: "#e3eaf5",
-          600: "#1f3a5f",
-          700: "#13263f",
-          800: "#0d1b2e",
-          900: "#091322",
+        // Engineered / technical-authoritative system (see DESIGN.md).
+        // True-gray neutrals + a single sparingly-used emerald accent.
+        ink: "#111317",
+        paper: "#F6F6F7",
+        line: {
+          DEFAULT: "#E5E5E7",
+          strong: "#D4D4D6",
         },
-        charcoal: "#1d2430",
-        paper: "#f4f5f7",
+        muted: {
+          DEFAULT: "#6B6B70",
+          soft: "#9A9AA0",
+        },
+        accent: {
+          DEFAULT: "#047857",
+          dark: "#065F46",
+          wash: "#ECFDF5",
+        },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
         mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
     },

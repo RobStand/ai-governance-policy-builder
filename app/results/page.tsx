@@ -144,7 +144,7 @@ export default function ResultsPage() {
         <div className="no-print mb-6 flex flex-wrap items-center justify-between gap-4">
           <Link
             href="/configure"
-            className="font-mono text-xs uppercase tracking-wider text-navy/60 hover:text-navy"
+            className="font-mono text-xs uppercase tracking-wider text-muted hover:text-accent"
           >
             ← Reconfigure
           </Link>
@@ -168,7 +168,7 @@ export default function ResultsPage() {
             <button
               type="button"
               onClick={() => config && generate(config)}
-              className="mt-3 rounded-md bg-navy px-3 py-1.5 text-xs font-semibold text-white hover:bg-navy-600"
+              className="mt-3 rounded-md bg-accent px-3 py-1.5 text-xs font-semibold text-white hover:bg-accent-dark"
             >
               Retry
             </button>
@@ -179,7 +179,7 @@ export default function ResultsPage() {
           {/* Sticky section nav */}
           <aside className="no-print hidden lg:block">
             <div className="sticky top-8">
-              <div className="font-mono text-xs uppercase tracking-wider text-navy/60">
+              <div className="font-mono text-xs uppercase tracking-wider text-muted">
                 Sections
               </div>
               <nav className="mt-3 space-y-1">
@@ -191,11 +191,11 @@ export default function ResultsPage() {
                       href={ready ? `#section-${s.number}` : undefined}
                       className={`block rounded-md px-2.5 py-1.5 text-sm transition-colors ${
                         ready
-                          ? "text-charcoal hover:bg-navy-50 hover:text-navy"
-                          : "cursor-default text-slate-300"
+                          ? "text-ink hover:bg-accent-wash hover:text-accent"
+                          : "cursor-default text-line-strong"
                       }`}
                     >
-                      <span className="font-mono text-xs text-slate-400">
+                      <span className="font-mono text-xs text-muted-soft">
                         {String(s.number).padStart(2, "0")}
                       </span>{" "}
                       {s.name}
@@ -204,8 +204,8 @@ export default function ResultsPage() {
                 })}
               </nav>
               {status === "streaming" ? (
-                <p className="mt-4 flex items-center gap-2 px-2.5 text-xs text-navy">
-                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-navy" />
+                <p className="mt-4 flex items-center gap-2 px-2.5 text-xs text-accent">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
                   Generating…
                 </p>
               ) : null}
@@ -215,9 +215,9 @@ export default function ResultsPage() {
           {/* Document */}
           <div>
             {doc.sections.length === 0 && status === "streaming" ? (
-              <div className="rounded-lg border border-slate-200 bg-white px-8 py-16 text-center">
-                <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-navy" />
-                <p className="mt-3 text-sm text-slate-500">
+              <div className="rounded-lg border border-line bg-white px-8 py-16 text-center">
+                <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-accent" />
+                <p className="mt-3 text-sm text-muted">
                   Drafting your governance framework…
                 </p>
               </div>
